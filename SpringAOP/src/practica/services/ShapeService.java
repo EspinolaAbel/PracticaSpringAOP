@@ -5,20 +5,20 @@ import practica.model.Triangle;
 
 public class ShapeService {
 	
-	private Circle circulo;
-	private Triangle triangulo;
+	private Circle circle;
+	private Triangle triangle;
 	
-	public Circle getCirculo() {
-		return circulo;
+	public Circle getCircle() {
+		return circle;
 	}
-	public void setCirculo(Circle circulo) {
-		this.circulo = circulo;
+	public void setCircle(Circle circle) {
+		this.circle = circle;
 	}
-	public Triangle getTriangulo() {
-		return triangulo;
+	public Triangle getTriangle() {
+		return triangle;
 	}
-	public void setTriangulo(Triangle triangulo) {
-		this.triangulo = triangulo;
+	public void setTriangle(Triangle triangle) {
+		this.triangle = triangle;
 	}
 	
 }

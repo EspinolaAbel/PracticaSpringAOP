@@ -10,6 +10,16 @@
 							http://www.springframework.com/schema/context
 							http://www.springframework.com/schema/context/spring-context-2.5.xsd>
 
+<bean id="triangle" class="practica.model.Triangle">
+	<property name="name" value="Triangle name"/>
+</bean>
+
+<bean id="circle" class="practica.model.Circle">
+	<property name="name" value="Circle name"/>
+</bean>
+
+<bean id="shapeService" class="practica.service.ShapeService" autowire="byName"/>
+
 <context:annotation-config/>
 
 <aop:aspectj-autoproxy/>
