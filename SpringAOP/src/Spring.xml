@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+    
+<beans	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+							http://www.springframework.org/schema/aop
+							http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
-<beans 	xmlns="http://www.springframework.com/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XML_Schema-instance"
-		xmlns:aop="http://www.springframework.com/schema/aop"
-		xmlns:context="http://www.springframework.com/schema/context"
-		xsi:schemaLocation="http://www.springframework.com/schema/beans http://www.springframework.com/schema/beans/spring-beans-2.0.xsd"
-							http://www.springframework.com/schema/aop
-							http://www.springframework.com/schema/aop/spring-aop-2.0.xsd
-							http://www.springframework.com/schema/context
-							http://www.springframework.com/schema/context/spring-context-2.5.xsd>
+	<bean id="triangle" class="practica.model.Triangle">
+		<property name="name" value="Triangle name" />
+	</bean>
+	
+	<bean id="circle" class="practica.model.Circle">
+		<property name="name" value="Circle name" />
+	</bean>
+	
+	<bean id="shapeService" class="practica.services.ShapeService" autowire="byName"></bean>
+	
+	<bean id="loggingAspect" class="practica.aspect.LoggingAspect" />
+	
 
-<bean id="triangle" class="practica.model.Triangle">
-	<property name="name" value="Triangle name"/>
-</bean>
-
-<bean id="circle" class="practica.model.Circle">
-	<property name="name" value="Circle name"/>
-</bean>
-
-<bean id="shapeService" class="practica.service.ShapeService" autowire="byName"/>
-
-<context:annotation-config/>
-
-<aop:aspectj-autoproxy/>
+	<context:annotation-config />
+	
+	<aop:aspectj-autoproxy />
 
 </beans>
