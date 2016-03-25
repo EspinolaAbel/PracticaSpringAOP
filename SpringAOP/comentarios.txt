@@ -1,0 +1,71 @@
+MIS APUNTES
+-----------
+
+Tuto 28,29
+Ejemplos: LoggingAspect iml
+--> Anotaciones de aspectos - @Before() y @Pointcut()
+
+	@Before()
+		- Se ejecuta el método con la anotación @Before justo antes de ser ejecutado el/los
+		métodos definidos dentro del parentesis.
+		
+		Dentro del parentesis se utiliza:
+		"execution(...)"	...=firma de un método
+		
+	@Pointcut()
+		- Un point cut es una anotación que me permite definir dentro del parentesis a qúe
+		métodos están destinados los métodos de aspectos que utilicen este pointcut.
+		- Para que un pointcut sea referenciado por otro método, este de implementar un 
+		método "dummy" vacío. Es por la firma de este método dummy que el pointcut es
+		referenciado.
+		- Se pueden anidar pointcuts con el operador lógico &&.
+		
+		Dentro del parentesis se utiliza:
+		"execution(...)"	...=firma de un método
+		"within(...)"		...=clase con nombre completo
+		"args(...)"			...=Clase del parámetro del método o el nombre de ese parámetro.
+								Se aplica a todos los métodos cuyos argumentos
+								sean del tipo de la clase dada o el nombre de parámetro dado.
+		
+Tuto 30
+--> Joinpoints
+
+	- Un joinpoint es todos los lugares donde se pueden aplicar advices.
+	Los lugares donde se aplican advices son los métodos.
+	Entonces, los joinpoints se aplican a métodos.
+	- Algunos métodos de un objeto joinpoint:
+		joinpoint.toString() => convierte en string el joinpoint
+			retorna algo del estilo "execution(public void getName())"
+		joinpoint.getTarget() => se obtiene el objeto cuyo método se está siendo apuntado
+			por el joinpoint.
+			
+Tuto 31
+Ejemplo: LoggingAspect impl
+--> After advice types y algunos parámetros para estos after.
+
+	@After(...)
+		Se ejectura después de haber sido ejecutado un método, haya terminado exitosamente
+		o no.
+		
+	@AfterReturning(...)
+		Se ejectura después de haber sido ejecutado un método exitosamente. Es decir,
+		después de ejecutar el método y este no haya lanzado ninguna excepción.
+		
+	@AfterThrowing(...)
+		Se ejectura después de haber sido ejecutado un método que lanzó una excepción.
+	
+	pointcut="..."		...=Algún pointcut
+	returning="..."		...=nombre con el que identifico lo que el método retorna.
+	throwing="..."		...=nombre con el que identifico la excepción que el método
+							retorna.
+							
+Tuto 32
+Ejemplo LoggingAspect impl
+--> Around
+
+	@Around me permite definir un comportamiento que se puede realizar antes y después de ejecutar el método target
+		Para que el around que el around me permita tener control sobre lo que se ejecuta antes y después de la ejecución
+		del targer, el método que lo ejecute debe tener como parámetro un argumento del tipo
+		ProceedingJoinPoint, el cual me permite tener control sobre cuando ejecutar el target recibido.
+		
+		Puedo modificar el retorno del método target.
